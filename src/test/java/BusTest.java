@@ -51,6 +51,28 @@ public class BusTest {
         assertEquals(0, busStop.personCount());
     }
 
+    @Test
+    public void pickUpPassengerFail(){
+        bus.pickUpPassenger(busStop);
+        assertEquals(0, bus.passengerCount());
+        assertEquals(0, busStop.personCount());
+    }
+
+    @Test
+    public void pickUpPassengerFai2(){
+        bus = new Bus("North Berwick", 2);
+        busStop.addPerson(person);
+        busStop.addPerson(person);
+        busStop.addPerson(person);
+        bus.pickUpPassenger(busStop);
+        bus.pickUpPassenger(busStop);
+        bus.pickUpPassenger(busStop);
+        assertEquals(2, bus.passengerCount());
+        assertEquals(1, busStop.personCount());
+    }
+
+
+
 
 
 
